@@ -10,6 +10,7 @@ gem "sdoc", "~> 0.4.0", group: :doc
 gem "slim-rails"
 gem "sqlite3"
 gem "uglifier", ">= 1.3.0"
+gem "vuejs-rails"
 
 group :development, :test do
   gem "byebug"
