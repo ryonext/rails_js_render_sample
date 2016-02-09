@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Positive Phrases</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Text</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @positive_phrases.each do |positive_phrase| %>
+      <tr>
+        <td><%= positive_phrase.text %></td>
+        <td><%= link_to 'Show', positive_phrase %></td>
+        <td><%= link_to 'Edit', edit_positive_phrase_path(positive_phrase) %></td>
+        <td><%= link_to 'Destroy', positive_phrase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Positive phrase', new_positive_phrase_path %>

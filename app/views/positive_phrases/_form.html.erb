@@ -1,0 +1,21 @@
+<%= form_for(@positive_phrase) do |f| %>
+  <% if @positive_phrase.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@positive_phrase.errors.count, "error") %> prohibited this positive_phrase from being saved:</h2>
+
+      <ul>
+      <% @positive_phrase.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :text %><br>
+    <%= f.text_field :text %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
