@@ -1,0 +1,9 @@
+p#notice
+  = notice
+p
+  strong
+    | Text:
+  = @positive_phrase.text
+= link_to 'Edit', edit_positive_phrase_path(@positive_phrase)
+|  | 
+= link_to 'Back', positive_phrases_path

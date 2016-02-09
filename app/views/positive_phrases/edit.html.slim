@@ -1,0 +1,16 @@
+= form_for(@positive_phrase) do |f|
+  - if @positive_phrase.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@positive_phrase.errors.count, "error")
+        |  prohibited this positive_phrase from being saved:
+      ul
+        - @positive_phrase.errors.full_messages.each do |message|
+          li
+            = message
+  .field
+    = f.label :text
+    br
+    = f.text_field :text
+  .actions
+    = f.submit
