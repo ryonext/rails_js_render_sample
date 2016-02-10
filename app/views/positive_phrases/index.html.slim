@@ -2,22 +2,43 @@ p#notice
   = notice
 h1
   | Listing Positive Phrases
-table
-  thead
-    tr
-      th
-        | Text
-      th[colspan="3"]
-  tbody
-    - @positive_phrases.each do |positive_phrase|
+#phrase-list
+  table
+    thead
       tr
-        td
-          = but_only_handsome(positive_phrase.text)
-        td
-          = link_to 'Show', positive_phrase
-        td
-          = link_to 'Edit', edit_positive_phrase_path(positive_phrase)
-        td
-          = link_to 'Destroy', positive_phrase, method: :delete, data: { confirm: 'Are you sure?' }
-br
-= link_to 'New Positive phrase', new_positive_phrase_path
+        th
+          | Text
+        th[colspan="3"]
+    tbody
+      - @positive_phrases.each do |positive_phrase|
+        tr
+          td
+            = but_only_handsome(positive_phrase.text)
+          td
+            = link_to 'Show', positive_phrase
+          td
+            = link_to 'Edit', edit_positive_phrase_path(positive_phrase)
+          td
+            = link_to 'Destroy', positive_phrase, method: :delete, data: { confirm: 'Are you sure?' }
+
+        <phrase v-for="phrase in phrases" :text="phrase"></phrase>
+
+
+  = form_for PositivePhrase.new do |f|
+    .field
+      = f.label :phrase
+      input v-model="Phrase.text"
+  button v-on:click="createPhrase()"
+    | Create Phrase
+
+  br
+
+  = link_to 'New Positive phrase', new_positive_phrase_path
+
+script type="x/template" id="phrase"
+  tr
+    td
+      = but_only_handsome("{{ text }}")
+    td
+    td
+    td
