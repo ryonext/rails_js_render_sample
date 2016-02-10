@@ -27,7 +27,7 @@ h1
   = form_for PositivePhrase.new do |f|
     .field
       = f.label :phrase
-      input v-model="Phrase.text"
+      input v-model="newPhrase"
   button v-on:click="createPhrase()"
     | Create Phrase
 
@@ -38,7 +38,8 @@ h1
 script type="x/template" id="phrase"
   tr
     td
-      = but_only_handsome("{{ text }}")
+      | {{ text }}
+/      = but_only_handsome("{{ text }}")
     td
     td
     td
