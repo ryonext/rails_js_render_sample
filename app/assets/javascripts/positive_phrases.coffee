@@ -19,3 +19,5 @@ $ ->
         this.phrases.push(this.newPhrase)
   )
 
+  $("#submit-by-jquery").on("click", ->
+  )
