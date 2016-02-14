@@ -27,7 +27,7 @@ h1
   = form_for PositivePhrase.new do |f|
     .field
       = f.label :phrase
-      input v-model="newPhrase"
+      input#new-phrase v-model="newPhrase"
   button v-on:click="createPhrase()"
     | Create Phrase by vue.js
   button#submit-by-jquery

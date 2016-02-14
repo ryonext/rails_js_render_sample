@@ -20,4 +20,16 @@ $ ->
   )
 
   $("#submit-by-jquery").on("click", ->
+    $.ajax(
+      type: "POST"
+      url: "/positive_phrases.json"
+      data:
+        positive_phrase:
+          text:$("#new-phrase").val()
+      success: ->
+        alert("success")
+      error: (a, b, c) ->
+        alert("error")
+      dataType: "json"
+    )
   )
