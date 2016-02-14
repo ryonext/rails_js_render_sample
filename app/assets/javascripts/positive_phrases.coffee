@@ -26,8 +26,9 @@ $ ->
       data:
         positive_phrase:
           text:$("#new-phrase").val()
-      success: ->
-        alert("success")
+      success: (data) ->
+        #$("<tr><td>#{data.text}</td></tr>").appendTo($("#tbody"))
+        $("<tr><td>#{but_handsome_only(data.text)}</td></tr>").appendTo($("#tbody"))
       error: (a, b, c) ->
         alert("error")
       dataType: "json"
